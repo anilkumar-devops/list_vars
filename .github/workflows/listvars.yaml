@@ -7,7 +7,7 @@ jobs:
     - name: list all vars
       run: |
           #echo "$ALLMYVARS" ${s:1:-1}
-          echo "${ALLMYVARS:1:-1}"
+          echo "${ALLMYVARS:1:-1}" | sed "s/\"//g"
       shell: bash
       env:
         ALLMYVARS: ${{ toJSON(vars) }}
