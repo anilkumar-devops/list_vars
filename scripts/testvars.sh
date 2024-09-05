@@ -1,6 +1,7 @@
 #!/bin/bash
 #echo "$ALLMYVARS" ${s:1:-1}
 echo "${ALLMYVARS:1:-1}" | sed "s/\"//g" | sed 's/,$//' > Tempfile
+cat tempfile
 for var in `cat Tempfile`
 do
   name=`echo "$var" | awk -F: '{print $1}'`
