@@ -4,9 +4,12 @@ jobs:
  test:
    runs-on: ubuntu-latest
    steps:
+    - name: checkout repo
+      uses: actions/checkout@v4
+      
     - name: list all vars
       run: |
-        chmod +x scripts/testvars.sh
+        chmod +x ./scripts/testvars.sh
         ./scripts/testvars.sh test.tomb
       shell: bash
       env:
