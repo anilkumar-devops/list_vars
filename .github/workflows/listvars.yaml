@@ -6,7 +6,7 @@ jobs:
    steps:
     - name: list all vars
       run: |
-          echo "$ALLMYVARS" | sed -e 's/^"//' -e 's/"$//'
+          echo "$ALLMYVARS" | | xargs
       shell: bash
       env:
         ALLMYVARS: ${{ toJSON(vars) }}
