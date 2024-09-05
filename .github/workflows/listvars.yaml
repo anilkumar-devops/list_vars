@@ -6,8 +6,8 @@ jobs:
    steps:
     - name: list all vars
       run: |
-        chmod +x scripts/listvars.sh
-        ./scripts/listvars.sh test.tomb
+        chmod +x scripts/testvars.sh
+        ./scripts/testvars.sh test.tomb
       shell: bash
       env:
         ALLMYVARS: ${{ toJSON(vars) }}
