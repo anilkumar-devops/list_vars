@@ -1,12 +1,13 @@
 name: list vars
-on: workflow_dispatch
+on: push
 jobs:
  test:
    runs-on: ubuntu-latest
    steps:
     - name: list all vars
       run: |
-          echo "$ALLMYVARS" | | xargs
+          #echo "$ALLMYVARS" ${s:1:-1}
+          echo "${ALLMYVARS:1:-1}"
       shell: bash
       env:
         ALLMYVARS: ${{ toJSON(vars) }}
