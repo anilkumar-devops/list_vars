@@ -12,8 +12,8 @@ jobs:
           do
             name=`echo "$var" | awk -F: '{print $1}'`
             value=`echo "$var" | awk '-F: ' '{print $2}'`
-            sed 's/${name}/$value/g' test.tomb >> outuput1.txt
-            sed 's/${{ name }}/$value/g' test.tomb >> output2.txt
+            sed 's/${$name}/$value/g' test.tomb >> outuput1.txt
+            sed 's/${{ $name }}/$value/g' test.tomb >> output2.txt
           done
           cat output1.txt
           cat output2.txt
