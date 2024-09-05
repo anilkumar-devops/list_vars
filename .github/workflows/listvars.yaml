@@ -6,9 +6,7 @@ jobs:
    steps:
     - name: list all vars
       run: |
-          echo "$ALLMYSECRETS"
           echo "$ALLMYVARS"
       shell: bash
       env:
-        ALLMYSECRETS: ${{ toJSON(secrets) }}
         ALLMYVARS: ${{ toJSON(vars) }}
