@@ -20,9 +20,11 @@ do
     var_value=`echo "$line" | awk '-F: ' '{print $2}'`
     echo "$var_value"
     tempvar1=`echo "$var_name" | awk '{print "${"$0"}"}'`
+    echo "$tempvar1"
     tempvar2=`echo "$var_name" | awk '{print "${{" $0 "}}"}'`
-    sed -i 's/$tempvar1/$var_value/g' test.tomb
-    sed -i 's/$tempvar2/$var_value/g' test.tomb    
+    echo "$tempvar2"
+    #sed -i 's/$tempvar1/$var_value/g' test.tomb
+    #sed -i 's/$tempvar2/$var_value/g' test.tomb    
 done < "Tempfile"
 # cat output1.txt
 # cat output2.txt
