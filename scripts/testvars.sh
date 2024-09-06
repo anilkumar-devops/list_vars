@@ -15,6 +15,11 @@ wc -l Tempfile
 while read line
 do
     printf "%s\n" "$line"
+    var_name=`echo "$line" | awk -F: '{print $1}'`
+    echo "$var_name"
+    var_value=`echo "$line" | awk '-F: ' '{print $2}'`
+    echo "$var_value"
+    echo "newvar=$($var_name)"
 done < "Tempfile"
 # cat output1.txt
 # cat output2.txt
