@@ -30,6 +30,7 @@ do
     sed -i "s,$tempvar1,$var_value,g" test.tomb
     sed -i "s,$tempvar2,$var_value,g" test.tomb
     head -5 test.tomb
+    mv test.tomb test.tomb
 done < "Tempfile"
 # cat output1.txt
 # cat output2.txt
