@@ -27,6 +27,7 @@ do
     pwd
     #sed -i "s/'$tempvar1'/$var_value/g" ./test.tomb
     #sed -i "s/'$tempvar2'/$var_value/g" ./test.tomb
+    head -5 test.tomb
     sed -e "s,$tempvar1,$var_value,g" -i test.tomb
 done < "Tempfile"
 # cat output1.txt
