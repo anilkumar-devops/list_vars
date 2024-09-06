@@ -7,7 +7,7 @@ do
   echo "$var"
   var_name=`echo "$var" | awk -F: '{print $1}'`
   var_value=`echo "$var" | awk '-F: ' '{print $2}'`
-  echo "newvar=$($name)"
+  echo "newvar=$($var_name)"
   sed -i 's/${name}/$value/g' test.tomb
   sed -i 's/${{ name }}/$value/g' test.tomb
 done
