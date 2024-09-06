@@ -7,7 +7,7 @@ do
     var_value=`echo "$line" | awk '-F: ' '{print $2}'`
     tempvar1=`echo "$var_name" | awk '{print "${"$0"}"}'`
     tempvar2=`echo "$var_name" | awk '{print "${{ "$0" }}"}'`
-    sed -i "s,$tempvar1,$var_value,g" test.tomb
-    sed -i "s,$tempvar2,$var_value,g" test.tomb
-    head -5 test.tomb
+    sed -i "s,$tempvar1,$var_value,g" $1
+    sed -i "s,$tempvar2,$var_value,g" $1
+    head -5 $1
 done < "Tempfile"
