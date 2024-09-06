@@ -1,7 +1,8 @@
 #!/bin/bash
 #echo "$ALLMYVARS" ${s:1:-1}
 echo "${ALLMYVARS:1:-1}" | sed "s/\"//g" | sed 's/,$//' | sed '/^[[:space:]]*$/d' > Tempfile
-head -4 Tempfile
+head -2 Tempfile
+wc -l Tempfile
 for var in `cat Tempfile`
 do
   echo "$var"
