@@ -23,8 +23,7 @@ jobs:
       run: |
         chmod +x ./scripts/testvars.sh
         ./scripts/testvars.sh test.tomb
-        echo "$INPUTVARS"
+        echo "${{ toJSON(github.event.inputs) }}"
       shell: bash
       env:
         ALLMYVARS: ${{ toJSON(vars) }}
-        INPUTVARS: ${{ toJSON(vars) }}
