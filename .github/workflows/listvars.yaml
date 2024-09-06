@@ -1,5 +1,17 @@
 name: list vars
-on: push
+on:
+  workflow_dispatch:
+    inputs:
+      terraformVersion:
+        description: "Terraform Version"
+        required: true
+        type: string
+        default: "latest"
+      tfpath:
+        description: "Terraform path"
+        required: false
+        type: string
+        default: ""      
 jobs:
  test:
    runs-on: ubuntu-latest
@@ -11,6 +23,8 @@ jobs:
       run: |
         chmod +x ./scripts/testvars.sh
         ./scripts/testvars.sh test.tomb
+        echo "$INPUTVARS"
       shell: bash
       env:
         ALLMYVARS: ${{ toJSON(vars) }}
+        INPUTVARS: ${{ toJSON(vars) }}
