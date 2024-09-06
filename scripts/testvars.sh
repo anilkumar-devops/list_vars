@@ -19,7 +19,7 @@ do
     echo "$var_name"
     var_value=`echo "$line" | awk '-F: ' '{print $2}'`
     echo "$var_value"
-    echo "newvar=$($var_name)"
+    echo "$var_name" | awk '{print "${"$0"}"}'
 done < "Tempfile"
 # cat output1.txt
 # cat output2.txt
