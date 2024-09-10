@@ -18,11 +18,17 @@ jobs:
    steps:
     - name: checkout repo
       uses: actions/checkout@v4
+
+    - name: print env vars
+      run: |
+        echo "terraform_state_bucket=stb" >> $GITHUB_ENV
+        echo "terraform_lock_table=tlt" >> $GITHUB_ENV
       
     - name: list all vars
       run: |
         chmod +x ./scripts/testvars.sh
         ./scripts/testvars.sh test.tomb
+        head -10 test.tomb
       shell: bash
       env:
         ALLMYVARS: ${{ toJSON(vars) }}
