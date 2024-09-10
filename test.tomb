@@ -3,3 +3,6 @@ ORGNAME: ${ORGNAME}
 
 ENVNAME: ${{ ENVNAME }}
 ORGNAME: $ORGNAME
+
+bucket         = "${terraform_state_bucket}"
+dynamodb_table = "${terraform_lock_table}"
