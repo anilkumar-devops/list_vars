@@ -26,7 +26,7 @@ jobs:
 
     - name: check command
       run: |
-         perl -pe 's/\$\{\s*([A-Za-z_][A-Za-z0-9_]*)\s*\}/\$\1/g' ./scripts/test.tomb > testfile
+         perl -pe 's/\$\{\s*([A-Za-z_][A-Za-z0-9_]*)\s*\}/\$\1/g' test.tomb > testfile
          head -20 testfile
       
     - name: list all vars
