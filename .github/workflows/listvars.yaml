@@ -23,6 +23,11 @@ jobs:
       run: |
         echo "terraform_state_bucket=stb" >> $GITHUB_ENV
         echo "terraform_lock_table=tlt" >> $GITHUB_ENV
+
+    - name: check command
+      run: |
+         perl -pe 's/\$\{\s*([A-Za-z_][A-Za-z0-9_]*)\s*\}/\$\1/g' ./scripts/test.tomb > testfile
+         head -20 testfile
       
     - name: list all vars
       run: |
